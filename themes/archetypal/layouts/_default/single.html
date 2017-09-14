@@ -1,0 +1,60 @@
+{{ partial "header.html" . }}
+{{ $baseurl := .Site.BaseURL }}
+<article class="p-article">
+  <header>
+    <h1>{{ .Title }}</h1>
+
+  </header>
+  <section id="js-article" class="p-article__body">
+    {{ .Content }}
+  </section>
+  <footer>
+    {{ with .Site.Params.disqus }}
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = '{{ . }}';
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    {{ end }}
+    <nav class="p-pagination c-pagination">
+        <script>
+            document.onkeydown = checkKey;
+            function checkKey(e) {
+              e = e || window.event;
+              if ( e.keyCode == '37') {
+                {{if .Prev}}
+                  window.location.href = "{{ .Prev.Permalink }}"
+                {{end}}
+              } else if ( e.keyCode == '39') {
+                {{if .Next}}
+                  window.location.href = "{{ .Next.Permalink }}"
+                {{end}}
+              }
+            }
+          </script>
+      <div class="c-pagination__ctrl">
+        <div class="c-pagination__newer">
+          {{ if .Prev }}
+          <a href="{{ .Prev.Permalink }}">prev</a>
+          {{ else }}
+          {{ end }}
+        </div>
+        <div class="c-pagination__older">
+          {{ if .Next }}
+          <a href="{{ .Next.Permalink }}">next</a>
+          {{ else }}
+          {{ end }}
+        </div>
+      </div>
+    </nav>
+    {{ partial "siteinfo.html" . }}
+  </footer>
+</article>
+{{ partial "footer.html" . }}

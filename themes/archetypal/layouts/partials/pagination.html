@@ -1,0 +1,31 @@
+<nav class="c-pagination p-pagination">
+    <script>
+        document.onkeydown = checkKey;
+        function checkKey(e) {
+          e = e || window.event;
+          if ( e.keyCode == '37') {
+            {{if .HasPrev }}
+                window.location.href = "{{ .Prev.URL }}"
+            {{end}}
+
+          } else if ( e.keyCode == '39') {
+            {{if .HasNext }}
+              window.location.href = "{{ .Next.URL }}"
+            {{end}}
+          }
+        }
+    </script>
+  <div class="c-pagination__ctrl">
+    <div class="c-pagination__newer">
+      {{if .Prev}}
+      <a href="{{ .Prev.URL }}">prev</a>
+      {{end}}
+    </div>
+    <div class="c-pagination__older">
+      {{if .Next}}
+      <a href="{{ .Next.URL }}">next</a>
+      {{end}}
+    </div>
+  </div>
+  <span class="c-pagination__count p-pagination__count">page {{ .PageNumber }} of {{.TotalPages}}</span>
+</nav>

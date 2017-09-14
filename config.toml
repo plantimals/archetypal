@@ -1,0 +1,15 @@
+baseURL = "http://archetyp.al/new/"
+languageCode = "en-us"
+title = "archetypal"
+theme = "archetypal"
+
+[params]
+  paginate = 100
+  # Social accounts. Link to these accounts are displayed in the header and
+  # footer
+  twitter = "plantimals"
+  github = "plantimals"
+  subtitle = "looking for patterns in the patterns"
+  # Logo image. This is displayed ogp image.
+  logo = "/images/farawaylogo_binary_tree.png"
+  favicon = "/images/farawaylogo_binary_tree.png"

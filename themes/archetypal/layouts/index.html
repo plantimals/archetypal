@@ -1,0 +1,60 @@
+{{ partial "header.html" . }}
+
+<font size="4">
+
+<!--<style>
+    table {
+        border-collapse: collapse;
+    }
+    td, tr {
+        border: 0;
+    }
+    div {
+        border: 0;
+    }
+</style>-->
+
+<style>
+    .things {
+        display: block;
+        float: left;
+        width: 18em;
+        border: 1px solid #e4e4e4;
+        border-radius: 5px;
+        margin: 20px;
+        padding: 20px;
+    }
+    .home {
+        width: 735px;
+        left: 0px;
+        right: 0px;
+        text-align: center;
+    }
+
+    .home::before {
+        content: " ";
+        display: table;
+    }
+
+    .home::after {
+        content: " ";
+        clear: both;
+        display: table;
+    }
+
+    .c-links {
+        clear: left;
+    }
+</style>
+
+
+<div class="home">
+    <a href="posts" class="things">
+        <h3>posts</h3>
+    </a>
+    <a href="memes" class="things">
+        <h3>memes</h3>
+    </a>
+</div>
+
+{{ partial "footer.html" . }}

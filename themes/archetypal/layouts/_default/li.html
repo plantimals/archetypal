@@ -1,0 +1,17 @@
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    <!--<p class="c-article__meta">
+      Posted on
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
+        {{ .Date.Format "Jan 2, 2006" }}
+      </time>
+    </p>-->
+  </header>
+ <div class="c-article__summary">
+    {{ .Description }} 
+    <a href="https://twitter.com/intent/tweet?via=plantimals&text={{ .Description | printf "\"%s - %s\" archetyp.al" .Title | safeURL }}" target="_blank">
+      tweet
+    </a>
+ </div>
+</article>
